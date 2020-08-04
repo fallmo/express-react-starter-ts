@@ -1,0 +1,30 @@
+{
+  "name": "ts-react-node-workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prod/app.js",
+  "scripts": {
+    "start": "npm run start --prefix ./prod",
+    "dev": "nodemon src/app.ts",
+    "react": "npm run start --prefix ./react",
+    "both": "concurrently \"npm run dev\" \"npm run react\"",
+    "build-server": "tsc -p .",
+    "build-react": "npm run build --prefix ./react",
+    "setup-config": "node setup/config",
+    "setup-package": "node setup/package",
+    "build": "npm run build-server && npm run build-react && npm run setup-config && npm run setup-package"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
